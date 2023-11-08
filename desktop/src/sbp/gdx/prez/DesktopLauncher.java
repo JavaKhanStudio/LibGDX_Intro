@@ -2,7 +2,7 @@ package sbp.gdx.prez;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import sbp.gdx.prez.MyGreenWorld;
+import sbp.gdx.prez.Exemple_A_Default;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
@@ -11,6 +11,6 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.useVsync(true);
 		config.setTitle("HandOnBDX");
-		new Lwjgl3Application(new MyGreenWorld(), config);
+		new Lwjgl3Application(new Exemple_A_Default(), config);
 	}
 }

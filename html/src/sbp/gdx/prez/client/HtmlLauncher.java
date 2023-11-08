@@ -3,7 +3,6 @@ package sbp.gdx.prez.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import sbp.gdx.prez.MyGreenWorld;
 
 public class HtmlLauncher extends GwtApplication {
 
@@ -17,6 +16,7 @@ public class HtmlLauncher extends GwtApplication {
 
         @Override
         public ApplicationListener createApplicationListener () {
-                return new MyGreenWorld();
+        	return null ;
+               // return new Exemple_A_Default();
         }
 }
