@@ -14,7 +14,7 @@ public class Exemple_B_Movement extends ApplicationAdapter {
 	float distanceAvecDelta = 0 ;
 	float distanceAvecDeltaPropre = 0 ;
 	
-	final int sizeImg = 200 ;
+	final int sizeImg = 150 ;
 	
 	@Override
 	public void create () {
@@ -27,16 +27,24 @@ public class Exemple_B_Movement extends ApplicationAdapter {
 		ScreenUtils.clear(1, 0, 0, 1);
 		
 		float delta = Gdx.graphics.getDeltaTime() ;
-		
-		System.out.println(delta);
-		
+		float cleanDelta = Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f) * 60;
+	    
 		distanceSansDelta += 1 ; 
 		distanceAvecDelta += 1 * delta * 60;
-		distanceAvecDeltaPropre = Math.min( Gdx.graphics.getDeltaTime(), 1/30 )
-		
 		batch.begin();
+	
 		batch.draw(img, distanceSansDelta, 0, sizeImg, sizeImg);
 		batch.draw(img, distanceAvecDelta, sizeImg, sizeImg, sizeImg);
+		
+		if (cleanDelta > 0) // Vieille facon de faire
+    	{	
+			distanceAvecDeltaPropre += cleanDelta ; 
+			batch.draw(img, distanceAvecDeltaPropre, sizeImg * 2, sizeImg, sizeImg);	
+    	} 
+		else {
+			System.out.println("cleanDelta was negative");
+		}
+		
 		batch.end();
 	}
 	

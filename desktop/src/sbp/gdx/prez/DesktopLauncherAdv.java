@@ -18,12 +18,12 @@ public class DesktopLauncherAdv
 	{
 		
 		
-		String[] options = {DEFAUT, LE_MOVEMENT, "option3"};
+		String[] options = {DEFAUT, LE_MOVEMENT, LE_MOVEMENT_RAPIDE, LE_UPDATE};
         
        
         String selectedOption = (String) JOptionPane.showInputDialog(
                 null,
-                "Choisir l'example souhaité",
+                "Choisir l'example souhaitï¿½",
                 "Option Dialog",
                 JOptionPane.QUESTION_MESSAGE,
                 null,
@@ -38,30 +38,37 @@ public class DesktopLauncherAdv
 	public static void startThis(String selectedOption) {
 		
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		config.setForegroundFPS(60);
-		config.useVsync(true);
 		
-		 if(selectedOption != null){
-	            switch (selectedOption) {
-	                case DEFAUT:
-	                	config.setTitle(DEFAUT);
-	            		new Lwjgl3Application(new Exemple_A_Default(), config);
-	                    break;
-	                case LE_MOVEMENT:
-	                	config.setTitle(LE_MOVEMENT);
-	                	config.useVsync(false);
-	            		new Lwjgl3Application(new Exemple_B_Movement(), config);
-	                    break;
-	                case "option3":
-	                	config.setTitle("HandOnBDX");
-	            		new Lwjgl3Application(new Exemple_A_Default(), config);
-	                    break;
-	                default:
-	                    JOptionPane.showMessageDialog(null, "No option selected!");
-	            }
-	        } else {
-	            // User closed the dialog or clicked Cancel
-	            JOptionPane.showMessageDialog(null, "No option selected or dialog was cancelled.");
-	        }
+		
+		if(selectedOption != null){
+			config.setForegroundFPS(60);
+			config.useVsync(true);
+			config.setTitle(selectedOption);
+			
+            switch (selectedOption) {
+                case DEFAUT:
+            		new Lwjgl3Application(new Exemple_A_Default(), config);
+                    break;
+                case LE_MOVEMENT:
+                	config.useVsync(false);
+            		new Lwjgl3Application(new Exemple_B_Movement(), config);
+                    break;
+                case LE_MOVEMENT_RAPIDE:
+                	config.setForegroundFPS(120);
+                	config.useVsync(false);
+            		new Lwjgl3Application(new Exemple_B_Movement(), config);
+                    break;
+                case LE_UPDATE:
+            		new Lwjgl3Application(new Exemple_C_Update(), config);
+                    break;
+                case TEXTURE_FILTER:
+            		new Lwjgl3Application(new Exemple_E_TextureFilters(), config);
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "No option selected!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Aucune option selectionnÃ©.");
+        }
 	}
 }
