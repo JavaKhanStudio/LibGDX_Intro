@@ -23,7 +23,7 @@ public class DesktopLauncherAdv
        
         String selectedOption = (String) JOptionPane.showInputDialog(
                 null,
-                "Choisir l'example souhait�",
+                "Choisir l'example souhaité",
                 "Option Dialog",
                 JOptionPane.QUESTION_MESSAGE,
                 null,
@@ -60,6 +60,12 @@ public class DesktopLauncherAdv
                     break;
                 case LE_UPDATE:
             		new Lwjgl3Application(new Exemple_C_Update(), config);
+                    break;
+                case LA_CAMERA:
+            		new Lwjgl3Application(new Exemple_D_CameraOrtho(), config);
+                    break;
+                case LES_TYPES_DE_CAMERA:
+            		new Lwjgl3Application(new Exemple_Dd_CamerasTypes(), config);
                     break;
                 case TEXTURE_FILTER:
             		new Lwjgl3Application(new Exemple_E_TextureFilters(), config);

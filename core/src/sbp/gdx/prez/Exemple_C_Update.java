@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+import sbp.gdx.prez.gvars.FVars_Texture;
+
 public class Exemple_C_Update extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
@@ -21,7 +23,7 @@ public class Exemple_C_Update extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		img = new Texture(FVars_Texture.BDXIO_LOGO);
 	}
 
 	@Override
@@ -31,7 +33,7 @@ public class Exemple_C_Update extends ApplicationAdapter {
 	        isPaused = !isPaused; 
 	    }
 		
-	    ScreenUtils.clear(1, 0, 0, 1);
+		ScreenUtils.clear(0, 0, 0, 1);
 	    
 	    float delta = Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f);
 	    

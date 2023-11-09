@@ -5,6 +5,6 @@ import static sbp.gdx.prez.gvars.FVars_StartOptions.*;
 
 public class DesktopCurrentTest {
 	public static void main (String[] arg) {
-		DesktopLauncherAdv.startThis(TEXTURE_FILTER);
+		DesktopLauncherAdv.startThis(LA_CAMERA);
 	}
 }
