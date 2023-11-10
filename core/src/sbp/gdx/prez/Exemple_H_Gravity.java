@@ -9,7 +9,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 import sbp.gdx.prez.gvars.FVars_Texture;
 
-public class Exemple_C_Update extends ApplicationAdapter {
+public class Exemple_H_Gravity extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
 	

@@ -4,26 +4,25 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import sbp.gdx.prez.gvars.FVars_Texture;
 
-public class Exemple_C_Update extends ApplicationAdapter {
+public class Exemple_Cc_Update_WithBitMap extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture img;
 	
-	float distanceRapide = 0 ; 
-	float distanceLent = 0 ;
-	
-	final int sizeImg = 200 ;
-	
+	float timeSinceStart ;
+	float frameRate ;
+	BitmapFont font ;
 	boolean isPaused = false ; 
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture(FVars_Texture.BDXIO_LOGO);
+		font = new BitmapFont() ; 
+		
 	}
 
 	@Override
@@ -45,22 +44,21 @@ public class Exemple_C_Update extends ApplicationAdapter {
 	}
 
 	public void update(float delta) {
-	    distanceLent += 1 * delta;
-	    distanceRapide += 1 * delta * 60;
+		timeSinceStart += Gdx.graphics.getDeltaTime();
+	    frameRate = 1 / Gdx.graphics.getDeltaTime();
 	}
 	
 	public void doRender() {
 		batch.begin();
-		
-		batch.draw(img, distanceRapide, 0, sizeImg, sizeImg);
-		batch.draw(img, distanceLent, sizeImg, sizeImg, sizeImg);
-		
+		font.draw(batch, "Current frame rate: " + (int)frameRate, Gdx.graphics.getWidth()/2 - 100, Gdx.graphics.getHeight()/2 + 10);
+		font.draw(batch, "Seconds since start: " + timeSinceStart, Gdx.graphics.getWidth()/2 - 100, Gdx.graphics.getHeight()/2 - 10);
+	    
 		batch.end();
 	}
 	
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
+		font.dispose();
 	}
 }

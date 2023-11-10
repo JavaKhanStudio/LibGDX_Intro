@@ -1,0 +1,33 @@
+girl_running.png
+size: 375, 111
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spritesheet-0
+  rotate: false
+  xy: 101, 1
+  size: 96, 108
+  orig: 130, 130
+  offset: 25, 0
+  index: -1
+spritesheet-1
+  rotate: false
+  xy: 199, 1
+  size: 98, 107
+  orig: 130, 130
+  offset: 20, 0
+  index: -1
+spritesheet-2
+  rotate: false
+  xy: 1, 1
+  size: 98, 109
+  orig: 130, 130
+  offset: 13, 0
+  index: -1
+spritesheet-3
+  rotate: false
+  xy: 299, 1
+  size: 75, 104
+  orig: 130, 130
+  offset: 37, 0
+  index: -1
