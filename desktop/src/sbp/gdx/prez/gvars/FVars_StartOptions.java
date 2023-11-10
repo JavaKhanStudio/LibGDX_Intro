@@ -15,7 +15,8 @@ public class FVars_StartOptions {
 		TEXTURE_FILTER = "Le TextureFilter",
 		ANIMATION_SIMPLE = "Une animation Simple",
 		ANIMATION_SIMPLE_ATLAS_SALE = "Une animation Simple mais avec Atlas Sale",
-		EXPLOSION_ON_CLICK_ONE_EXPLOSION = "Explosion sur Click"
+		EXPLOSION_ON_CLICK_ONE_EXPLOSION = "Explosion sur Click",
+		GRAVITY = "La Gravité simple"
 		;
 	
 	

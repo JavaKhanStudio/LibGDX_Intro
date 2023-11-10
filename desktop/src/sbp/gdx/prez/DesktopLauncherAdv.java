@@ -90,6 +90,9 @@ public class DesktopLauncherAdv
                 case EXPLOSION_ON_CLICK_ONE_EXPLOSION : 
                 	new Lwjgl3Application(new Exemple_G_AnimationComplexe_OnClick_OneExplosion(), config);
                     break;
+                case GRAVITY : 
+                	new Lwjgl3Application(new Exemple_H_Gravity(), config);
+                    break;
                 default:
                     JOptionPane.showMessageDialog(null, "No option selected!");
             }

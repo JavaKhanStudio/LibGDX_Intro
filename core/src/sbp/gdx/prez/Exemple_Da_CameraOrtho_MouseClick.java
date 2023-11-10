@@ -5,46 +5,43 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import sbp.gdx.prez.gvars.FVars_Texture;
-
 public class Exemple_Da_CameraOrtho_MouseClick extends ApplicationAdapter {
-    SpriteBatch batch;
+    
+	SpriteBatch batch;
     OrthographicCamera camera;
+    ShapeRenderer shapeRenderer;
 
-    float distanceRapide = 0;
-    float distanceLent = 0;
-    final int sizeImg = 200;
-    boolean isPaused = true;
-    
-   
-    
+    Array<Vector2> clickPositions;
+    final float circleRadius = 20f; // Radius of the circles to be drawn
+
     @Override
     public void create() {
         batch = new SpriteBatch();
+        shapeRenderer = new ShapeRenderer();
 
         // Main camera
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.setToOrtho(false);
         camera.update();
-        
+
+        clickPositions = new Array<>();
+
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-                clickPosition = new Vector2(screenX, screenY);
-                worldClickPosition = new Vector3(screenX, screenY, 0) ; 
-                worldClickPosition = camera.unproject(worldClickPosition);
-
-                Vector2 correctedPosition = new Vector2(worldClickPosition.x, worldClickPosition.y) ;
+                Vector3 worldClickPosition = new Vector3(screenX, screenY, 0);
+                camera.unproject(worldClickPosition);
+                clickPositions.add(new Vector2(worldClickPosition.x, worldClickPosition.y));
                 return true;
             }
         });
-
     }
 
     @Override
@@ -54,12 +51,6 @@ public class Exemple_Da_CameraOrtho_MouseClick extends ApplicationAdapter {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 
-        float delta = Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f);
-        
-        if (!isPaused) {
-            update(delta);
-        }
-        
         ScreenUtils.clear(0, 0, 0, 1);
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
@@ -88,22 +79,22 @@ public class Exemple_Da_CameraOrtho_MouseClick extends ApplicationAdapter {
         }
     }
 
-    Vector2 clickPosition ; 
-    Vector3 worldClickPosition ; 
-    
-    public void update(float delta) {
-        
-       
-    }
-
     public void doRender() {
         batch.begin();
+        // Render sprites or other batched elements here...
         batch.end();
-    }
 
+        shapeRenderer.setProjectionMatrix(camera.combined);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        for (Vector2 pos : clickPositions) {
+            shapeRenderer.circle(pos.x, pos.y, circleRadius);
+        }
+        shapeRenderer.end();
+    }
 
     @Override
     public void dispose() {
         batch.dispose();
+        shapeRenderer.dispose();
     }
 }
