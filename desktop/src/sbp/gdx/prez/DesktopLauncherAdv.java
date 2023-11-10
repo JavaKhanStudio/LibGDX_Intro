@@ -93,6 +93,9 @@ public class DesktopLauncherAdv
                 case GRAVITY : 
                 	new Lwjgl3Application(new Exemple_H_Gravity(), config);
                     break;
+                case GRAVITY_AVEC_FIXTURE : 
+                	new Lwjgl3Application(new Exemple_Hh_Gravity_Avec_Fixture(), config);
+                    break;
                 default:
                     JOptionPane.showMessageDialog(null, "No option selected!");
             }

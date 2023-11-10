@@ -16,7 +16,8 @@ public class FVars_StartOptions {
 		ANIMATION_SIMPLE = "Une animation Simple",
 		ANIMATION_SIMPLE_ATLAS_SALE = "Une animation Simple mais avec Atlas Sale",
 		EXPLOSION_ON_CLICK_ONE_EXPLOSION = "Explosion sur Click",
-		GRAVITY = "La Gravité simple"
+		GRAVITY = "La Gravité simple",
+		GRAVITY_AVEC_FIXTURE = "La gravité avec ficture" 
 		;
 	
 	
