@@ -48,6 +48,7 @@ public class DesktopLauncherAdv
 			config.useVsync(true);
 			config.setTitle(selectedOption);
 			
+			config.setWindowedMode(1000, 800);
 			
             switch (selectedOption) {
                 case DEFAUT:

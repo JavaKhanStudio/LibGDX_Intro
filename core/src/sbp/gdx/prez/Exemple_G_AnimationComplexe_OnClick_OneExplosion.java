@@ -76,7 +76,7 @@ public class Exemple_G_AnimationComplexe_OnClick_OneExplosion extends Applicatio
         {
         	currentFrameExplosion = explosion1.getKeyFrame(stateTimeExplosion, true) ; 
         	
-        	batch.draw(currentFrameExplosion, Gdx.graphics.getWidth() - clickPosition.x, Gdx.graphics.getHeight() - clickPosition.y);
+        	batch.draw(currentFrameExplosion, clickPosition.x - currentFrameExplosion.getRegionWidth()/ 2, Gdx.graphics.getHeight() - clickPosition.y - currentFrameExplosion.getRegionHeight()/2);
         	stateTimeExplosion += Gdx.graphics.getDeltaTime() ; 
         }
         	
