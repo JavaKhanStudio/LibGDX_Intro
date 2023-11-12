@@ -1,5 +1,7 @@
 package sbp.gdx.prez;
 
+import java.util.Random;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -49,7 +51,13 @@ public class Exemple_G_AnimationComplexe_OnClick_OneExplosion extends Applicatio
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
                 clickPosition = new Vector2(screenX, screenY);
-                explosion1 = GVars_AnimationExplosition.getExplosion1() ;
+                Random random = new Random() ;
+                
+                if(random.nextBoolean())
+                	explosion1 = GVars_AnimationExplosition.getExplosion1() ;
+                else
+                	explosion1 = GVars_AnimationExplosition.getExplosion2() ;
+                
                 stateTimeExplosion = 0 ; 
                 return true;
             }

@@ -26,7 +26,7 @@ public class Exemple_B_Movement extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(0, 0, 0, 1);
+		//ScreenUtils.clear(0, 0, 0, 1);
 		
 		float delta = Gdx.graphics.getDeltaTime() ;
 		float cleanDelta = Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f) * 60;

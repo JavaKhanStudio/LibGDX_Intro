@@ -23,7 +23,7 @@ public class DesktopLauncherAdv
 		
 		String[] options = {DEFAUT, LE_MOVEMENT, LE_MOVEMENT_RAPIDE, LE_UPDATE};
         
-       
+		
         String selectedOption = (String) JOptionPane.showInputDialog(
                 null,
                 "Choisir l'example souhaité",
@@ -63,6 +63,9 @@ public class DesktopLauncherAdv
                 	config.useVsync(false);
             		new Lwjgl3Application(new Exemple_B_Movement(), config);
                     break;
+                case LE_SHAPE:
+            		new Lwjgl3Application(new Exemple_Bb_Shapes(), config);
+                    break;  
                 case LE_UPDATE:
             		new Lwjgl3Application(new Exemple_C_Update(), config);
                     break;  
