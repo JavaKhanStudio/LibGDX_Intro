@@ -20,10 +20,6 @@ public class DesktopLauncherAdv
 	public static void main (String[] arg) 
 	{
 		
-		
-		String[] options = {DEFAUT, LE_MOVEMENT, LE_MOVEMENT_RAPIDE, LE_UPDATE};
-        
-		
         String selectedOption = (String) JOptionPane.showInputDialog(
                 null,
                 "Choisir l'example souhaité",
